@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 5000;
+
 app.use(express.json());
 app.use(express.static('public'));
  
@@ -19,8 +20,8 @@ app.get('/veiculos', (req, res) => {
     res.json(veiculos);
 });
  
-// inicia o servidor na porta 3000
-app.listen(port, () => {
-    console.log(`Servidor rodando em http://localhost:${port}`);
+// inicia o servidor na porta 5000
+app.listen(port, '0.0.0.0', () => {
+    console.log(`Servidor rodando em http://0.0.0.0:${port}`);
 });
  
